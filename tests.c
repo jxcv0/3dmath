@@ -344,6 +344,7 @@ int main(void)
     dot_vec4_test();
     cross_vec3_test();
     cross_mat4_test();
+    ortho_test();
     perspective_test();
     translate_test();
     rotate_test();
