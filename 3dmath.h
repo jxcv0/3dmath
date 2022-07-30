@@ -20,8 +20,8 @@
  * IN THE SOFTWARE.
  */
  
-#ifndef 3DMATH_H
-#define 3DMATH_H
+#ifndef THREEDMATH_H
+#define THREEDMATH_H
 
 #include <math.h>
 #include <float.h>
@@ -397,4 +397,4 @@ static inline mat4_t look_at(const vec3_t eye, const vec3_t ctr, const vec3_t up
     return m;
 }
 
-#endif // 3DMATH_H
+#endif // THREEDMATH_H
