@@ -313,6 +313,24 @@ static inline mat4_t cross_mat4(const mat4_t m1, const mat4_t m2)
     return m;
 }
 
+// create orthographic perspective matrix
+static inline mat4_t ortho(const float left,
+						   const float right,
+						   const float bottom,
+						   const float top,
+						   const float near,
+						   const float far)
+{
+	mat4_t m = construct_mat4(1.0f);
+	m.values[0][0] = 2.0f / (right - left);
+	m.values[1][1] = 2.0f / (top - bottom);
+	m.values[2][2] = -2.0f / (far - near);
+	m.values[3][0] = -(right + left) / (right - left);
+	m.values[3][1] = -(top + bottom) / (top - bottom);
+	m.values[3][2] = -(far + near) / (far - near);
+	return m;
+}
+
 // create perspective projection matrix
 static inline mat4_t perspective(const float fov, const float near, const float far, const float ratio)
 {

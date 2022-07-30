@@ -1,6 +1,4 @@
 #include "3dmath.h"
-#include "logger.h"
-
 #include <assert.h>
 
 void row_mat4_test()
@@ -213,6 +211,28 @@ void cross_mat4_test()
     }
 }
 
+void ortho_test()
+{
+    mat4_t a = ortho(0.0f, 800.0f, 0.0f, 600.0f, -1.0f, 1.0f);
+    mat4_t e = {
+        .values = {
+            {0.0025f, 0.0f, 0.0f, 0.0f},
+            {0.0f, 0.003333f, 0.0f, 0.0f},
+            {0.0f, 0.0f, -1.0f, 0.0f},
+            {-1.0f, -1.0f, -0.0f, 1.0f}
+	}
+    };
+
+    for(int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            // FIXME more rounding errors
+            assert(fabs(a.values[i][j] - e.values[i][j]) < 0.001f);
+        }
+    }
+}
+
 void perspective_test()
 {
     mat4_t a = perspective(45.0f, 0.1f, 100.0f, (800.0f/600.0f));
@@ -328,7 +348,5 @@ int main(void)
     translate_test();
     rotate_test();
     look_at_test();
-
-    xen_log("maths_tests passed");
     return 0;
 }
