@@ -76,6 +76,15 @@ static inline void print_vec4(const vec4_t v)
 }
 
 // construct a 3 dimensional vector
+static inline vec2_t construct_vec2(float x, float y)
+{
+    vec2_t v = {
+        .values = {x, y}
+    };
+    return v;
+}
+
+// construct a 3 dimensional vector
 static inline vec3_t construct_vec3(float x, float y, float z)
 {
     vec3_t v = {
