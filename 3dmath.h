@@ -357,7 +357,7 @@ static inline mat4_t perspective(const float fov, const float near, const float 
 }
 
 // create a transformation matrix from a vec2 (for 2d)
-static inline mat4_t translate(const mat4_t m, const vec2_t v, const float f)
+static inline mat4_t translate_vec2(const mat4_t m, const vec2_t v, const float f)
 {
 	mat4_t mat = m;
 	mat.values[3][0] = v.values[0];
@@ -367,7 +367,7 @@ static inline mat4_t translate(const mat4_t m, const vec2_t v, const float f)
 }
 
 // create a transformation matrix from a vec3
-static inline mat4_t translate(const mat4_t m, const vec3_t v)
+static inline mat4_t translate_vec3(const mat4_t m, const vec3_t v)
 {
 	mat4_t mat = m;
 	mat.values[3][0] = v.values[0];
